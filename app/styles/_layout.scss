@@ -1,0 +1,476 @@
+*,
+*:after,
+*::before {
+    @include box-sizing(border-box);
+}
+
+*:focus {
+    outline: none;
+}
+
+*::-moz-focus-inner {
+    border: none;
+}
+
+html, body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background: white;
+    font-family: $opensans;
+    font-weight: 300;
+    font-size: 26px;
+}
+
+.main-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include translateX(0);
+    @include transition(all .5s);
+    z-index: 4;
+    height: 100.5%;
+    overflow: hidden;
+}
+
+.overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+    background: white;
+    @include opacity(0);
+    z-index: -1;
+    @include transition(transform .5s .0s, opacity .5s, z-index 0s .5s);
+}
+
+header {
+    @include opacity(1);
+    @include clearfix;
+    text-align: center;
+    max-width: $max-width;
+    margin: 0 auto 20px;
+    position: relative;
+    @include translateY(-100%);
+    top: 90%;
+    @include transition(transform .5s, top .5s, opacity .5s .5s);
+     animation-fill-mode: forwards;
+    z-index: 1;
+}
+
+.site-name-wrapper {
+    position: relative;
+}
+
+.site-name {
+    max-width: 600px;
+    font-family: $monterey;
+    line-height: 1;
+    font-size: 110px;
+    font-weight: 100;
+    color: white;
+    padding: 0 20px 20px;
+    margin: 0 auto;
+    @include transition(all .5s);
+    @include text-shadow(0 1px 50px black, 0 1px 5px black, 0 1px 20px black);
+
+    .ampersand {
+        background: $brown-dark;
+        @include border-radius(50%);
+        @include inline-block;
+        text-align: center;
+        height: 40px;
+        width: 40px;
+        font-size: 40px;
+        position: relative;
+        top: 10px;
+        left: 5px;
+    }
+
+    .karel, .raquel {
+        position: relative;
+        @include inline-block;
+    }
+
+    .shadow {
+        position: absolute;
+        right: 0;
+        bottom: 15px;
+        font-family: $mogadischu;
+        color: $green-lighter;
+        font-size: 40px;
+        z-index: -1;
+        @include opacity(0);
+    }
+}
+
+.date {
+    @include transition(all .5s);
+    max-width: 540px;
+    border-bottom: 2px solid white;
+    display: block;
+    color: white;
+    // max-height: 100px;
+    font-weight: 100;
+    font-family: $helium-l;
+    padding: 20px;
+    margin: 0 auto;
+    @include opacity(1);
+    font-size: 60px;
+    @include text-shadow(0 1px 20px black, 0 1px 5px black, 0 1px 25px black);
+}
+
+.menu-toggle {
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    @include rgba-background(rgba($accent, 0.8));
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 30;
+    @include transition(background .5s, transform .5s);
+    @include animation(fadeIn 1s 0.3s 1);
+    @include animation-fill-mode(forwards);
+    @include opacity(1);
+    @include border-radius(3px);
+
+    &:hover {
+        @include opacity(1);
+        @include rgba-background(rgba(darken($accent, 20%), 0.8));
+    }
+
+    &:focus {
+        @include opacity(1);
+    }
+
+    .bars {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .bar {
+        width: 20px;
+        height: 4px;
+        background: white;
+        @include transition(all 1s);
+        position: absolute;
+        left: 0px;
+        width: 30px;
+
+        &:nth-child(1) {
+            top: 0px;
+        }
+
+
+        &:nth-child(2) {
+            top: 50%;
+            margin-top: -2px;
+        }
+
+        &:nth-child(3) {
+            bottom: 0px;
+        }
+    }
+}
+
+p.description {
+    color: $gray;
+}
+
+.side-menu {
+    @include opacity(0);
+    @include transition(transform .7s .4s, opacity .3s 0s, z-index 0s 0s);
+    padding: 20px;
+    position: absolute;
+    z-index: 2;
+    background: white;
+    width: $min-mobile-width;
+    height: 100%;
+    top: 0;
+    color: black;
+    overflow-y: auto;
+
+    .block-title {
+        font-family: $monterey;
+        line-height: 1;
+        font-size: 50px;
+        font-weight: 100;
+        text-decoration: uppercase;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+}
+
+.bigtext {
+    @include border-radius(3px 3px 0 0);
+    @include inline-block;
+    @include box-sizing(border-box);
+    color: white;
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    background: $green-light;
+    display: block;
+    font-family: $monterey;
+    font-weight: 300;
+    text-align: center;
+    width: 100%;
+    line-height: 0.75;
+}
+
+table {
+  width: 100%;
+}
+
+.background-wrapper {
+    @include transition(all .5s);
+    left: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: -1;
+    @include translateX(0);
+}
+
+.has-active-menu {
+    .side-menu {
+        @include transition(transform .7s .0s, opacity .7s .5s, z-index 0s .3s);
+        z-index: 6;
+        @include opacity(1);
+    }
+
+    .overlay {
+        @include transition(transform .5s .0s, opacity .5s, z-index 0s 0s);
+        // @include translateX($min-mobile-width);
+        @include opacity(0.7);
+        z-index: 5;
+    }
+
+    .background-wrapper {
+        @include translateX($min-mobile-width);
+    }
+
+    .main-wrapper {
+        @include translateX($min-mobile-width);
+        cursor: pointer;
+    }
+
+    .menu-toggle {
+        @include translateX($min-mobile-width - 90px);
+
+        .bar {
+            width: 42.4px;
+            left: -6px;
+        }
+
+        .bar:nth-child(2) {
+            @include opacity(0);
+        }
+
+        .bar:nth-child(1) {
+            @include rotate(-45deg);
+            top: 44%;
+        }
+
+        .bar:nth-child(3) {
+            bottom: 44%;
+            @include rotate(45deg);
+        }
+    }
+}
+
+body[data-section="set-language"],
+body[data-section="my-account"],
+body[data-section="save-the-date"],
+body[data-section="page"] {
+    header {
+        @include opacity(0);
+        @include transition(transform .5s, top .5s, opacity .5s 0s);
+        z-index: -1;
+    }
+
+}
+
+.main-inner {
+    background: white;
+    @include transition(all .5s);
+
+    img {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    p {
+       margin: 0;
+    }
+}
+
+body.fadeIn {
+    .overlay {
+        @include transition(transform .5s .0s, opacity .5s .3s, z-index 0s 0s);
+        // @include translateX($min-mobile-width);
+        @include opacity(0);
+        z-index: 5;
+    }
+}
+
+body.fadeOut {
+    .overlay {
+        @include transition(transform .5s .0s, opacity .5s, z-index 0s 0s);
+        // @include translateX($min-mobile-width);
+        @include opacity(1);
+        z-index: 5;
+    }
+}
+
+.page-outer-wrapper {
+    @include transition(all .5s 0);
+
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.page-wrapper {
+    width: 600px;
+    max-width: 100%;
+    margin: 20px 100px 20px;
+    @include transition(all .5s);
+}
+
+.page-inner {
+    @include border-radius(0 0 3px 3px);
+    padding: 40px;
+    @include clearfix;
+    float: left;
+    width: 100%;
+    background: rgba(255, 255, 255, .9);
+    margin-bottom: 20px;
+
+    .body {
+        margin-bottom: 20px;
+    }
+}
+
+.show-only-image {
+    .page-wrapper {
+        @include opacity(0);
+    }
+}
+
+.image-wrapper {
+    background: rgba(255, 255, 255, .9);
+    padding: 20px;
+    text-align: center;
+
+    img {
+        margin: 0 auto;
+    }
+}
+
+.language-switcher {
+    float: left;
+    width: 100%;
+
+    a {
+        @include transition(opacity .4s);
+        width: 30%;
+        margin-right: 5%;
+        display: block;
+        float: left;
+
+        img {
+            width: 100%;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &:hover {
+        a {
+            @include opacity(.3);
+
+            &:hover {
+                @include opacity(1);
+            }
+        }
+    }
+}
+
+#user-login, #user-password-forget {
+    @include transition(opacity .5s);
+}
+
+.login-visible #user-login,
+.password-visible #user-password-forget {
+    @include opacity(1);
+    visibility: visible;
+}
+
+.password-visible #user-login,
+.login-visible #user-password-forget {
+    @include opacity(0);
+    visibility: hidden;
+    height: 0;
+    position: absolute;
+    top: 0;
+}
+
+.side-menu-inner {
+    padding-bottom: 200px;
+
+    form a {
+        font-size: 18px;
+        color: $green-light;
+        text-decoration: none;
+        text-align: right;
+        width: 100%;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+.loader {
+    z-index: -1;
+    background: white url(../images/loader.gif) center center no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    @include opacity(0);
+    @include transition(opacity .5s, z-index 0s 1s);
+}
+
+body.no-transitions {
+    .overlay {
+        @include opacity(0);
+    }
+
+    .loader {
+        @include opacity(1);
+        z-index: 1000;
+    }
+}

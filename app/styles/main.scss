@@ -1,0 +1,36 @@
+$green-light: #00aa88;
+$green-lighter: #d7f4ee;
+$green-dark: #005544;
+$yellow: #fefbc5;
+$gray: #aaa;
+$red: #ff5555;
+$brown-dark: #22170c;
+
+$accent: $green-light;
+
+$monterey: 'Monterey';
+$helium-l: 'Helium-l';
+$helium-m: 'Helium-m';
+$mogadischu: 'Mogadischu';
+$opensans: 'Opensans-condensed';
+
+$default-transition-function: ease-in-out;
+
+$max-width: 720px;
+$min-mobile-width: 320px;
+
+@import 'compass';
+@import 'animation';
+@import 'animation/animate';
+@import 'mixins';
+@import 'rgbapng';
+@import 'fonts';
+@import 'forms';
+@import 'menu';
+@import 'save-the-date';
+@import 'photos';
+@import 'radio';
+@import 'layout';
+@import 'responsive';
+@import 'schedule';
+@import 'lightbox';

@@ -1,0 +1,19 @@
+#imagelightbox {
+    position: fixed;
+    z-index: 9999;
+
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+.has-active-lightbox {
+    .overlay {
+        @include transition(transform .5s .0s, opacity .5s, z-index 0s 0s);
+        @include opacity(0.9);
+        z-index: 6;
+    }
+
+    .menu-toggle {
+      z-index: 5;
+    }
+}

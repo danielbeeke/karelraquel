@@ -1,0 +1,130 @@
+input, button {
+    padding: 10px 15px;
+    background: white;
+    width: 100%;
+    outline: none;
+    border: 2px solid transparent;
+    @include transition(background .5s, border .5s);
+    // margin-bottom: 10px;
+    font-family: $helium-l;
+    font-size: 26px;
+}
+
+input[type="submit"], button[type="submit"] {
+    background-color: $green-light;
+    padding: 11px 17px 9px 17px;
+    color: white;
+    text-align: right;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 36px;
+    @include border-radius(3px);
+    -webkit-appearance: none;
+
+    &:not(.is-submitting) {
+        &:hover, &:focus {
+            background-color: $green-dark;
+        }
+    }
+
+    &.is-submitting {
+        text-align: left;
+        @include animation(submitting 1s infinite);
+        @include striped-bg($bg-color: $green-light);
+    }
+}
+
+.form-submit {
+    margin-top: 20px;
+    padding-right: 50px !important;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 0;
+
+    span {
+        position: relative;
+        z-index: 3;
+    }
+
+    &:after {
+        content: '→';
+        @include translateX(7px);
+        @include transition(all .5s);
+        position: absolute;
+    }
+
+    &:before {
+        content: ".";
+        @include transition(all .3s);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10%;
+        height: 100%;
+        text-indent: 9999px;
+        background: $green-dark;
+        display: block;
+        @include opacity(0);
+        z-index: 0;
+    }
+
+    &:hover {
+        &:after {
+            @include translateX(17px);
+        }
+
+        &:before {
+            width: 110%;
+            @include opacity(1);
+        }
+    }
+
+    &.is-submitting {
+        &:before, &:after {
+            display: none;
+        }
+    }
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    background: #eee;
+    @include border-radius(3px);
+    background-image: none !important;
+
+    &:focus {
+        background: white;
+        border: 2px solid $accent;
+    }
+
+    &.error {
+        border-color: $red;
+    }
+
+    @include placeholder {
+        font-family: $helium-l;
+    }
+}
+
+input[type="password"] {
+    font: small-caption;
+    font-size: 26px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+
+    label {
+        font-family: $helium-m;
+        color: $green-light;
+    }
+}
+
+hr {
+    background: white;
+    border: 0;
+    height: 3px;
+    margin: 20px 0;
+}

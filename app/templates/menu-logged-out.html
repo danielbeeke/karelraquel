@@ -1,0 +1,42 @@
+<div class="side-menu-inner">
+
+  <form id="user-login">
+      <h3 class="block-title">{{ t('Login') }}</h3>
+      <div class="form-group">
+        <label for="username">{{ t('Email address') }}</label>
+        <input id="user-login-username" name="username" type="text" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label for="password">{{ t('Password') }}</label>
+        <input id="user-login-password" name="password" type="password" placeholder="Password">
+      </div>
+
+      <input id="user-login-submit" type="submit" value="{{ t('Login') }} →">
+      <a id="forgot-password" href="#">{{ t('Forgot password?') }}</a>
+  </form>
+
+  <form id="user-password-forget">
+      <h3 class="block-title">{{ t('Recovery') }}</h3>
+      <div class="form-group">
+        <label for="username">{{ t('Email address') }}</label>
+        <input id="user-password-forget-username" name="username" type="text" placeholder="Email">
+      </div>
+
+      <input id="user-password-forget-submit" type="submit" value="{{ t('Recover') }} →">
+      <a id="goto-login" href="#">{{ t('Goto login') }}</a>
+  </form>
+
+  <h3 class="block-title">{{ t('Menu') }}</h3>
+
+  <ul class="main-menu">
+    {% for page in pages %}
+      <li><a href="#page/{{ page.slug }}">{{ page.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <div class="language-switcher">
+      <a href="#set-language/nl" class="nl"><img src="images/nl.png"></a>
+      <a href="#set-language/en" class="en"><img src="images/en.png"></a>
+      <a href="#set-language/es" class="es"><img src="images/es.png"></a>
+  </div>
+</div>

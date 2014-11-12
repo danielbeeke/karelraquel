@@ -1,0 +1,17 @@
+{
+  "name": "karelraquel",
+  "version": "0.0.0",
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~1.9.1",
+    "twig.js": "justjohn/twig.js#~0.7.1",
+    "crossroads.js": "~0.12.0",
+    "hasher": "~1.2.0",
+    "jquery.cookie": "carhartl/jquery-cookie#~1.4.1",
+    "requirejs": "~2.1.11",
+    "store": "marcuswestin/store.js#~1.3.16",
+    "localStorageDB": "knadh/localStorageDB",
+    "bigtext": "zachleat/BigText#~0.1.6"
+  },
+  "devDependencies": {}
+}

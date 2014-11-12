@@ -1,0 +1,17 @@
+.main-inner .photos-wrapper .item {
+  max-width: 120px;
+  float: left;
+  margin-right: 10px;
+}
+
+.main-inner .photos-wrapper {
+  margin-right: -20px;
+  float: left;
+  width: 100%;
+}
+
+body.has-active-fullscreen-photo {
+  .main-wrapper {
+    overflow-y: hidden;
+  }
+}

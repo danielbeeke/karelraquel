@@ -1,0 +1,55 @@
+.nice-checkbox {
+  position: relative;
+  width: 100%;
+  height: 50px;
+
+  svg {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 3px;
+    left: 65px;
+    pointer-events: none;
+    z-index: 200;
+
+    path {
+      stroke: $green-light;
+      stroke-width: 10px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+  }
+
+  input[type="checkbox"] {
+    @include opacity(0);
+    @include inline-block;
+    -webkit-appearance: none;
+    // z-index: 100;
+  }
+
+  input[type="checkbox"],
+  label:before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  label {
+    @include inline-block;
+
+    &:before {
+      content: '';
+      // border: 4px solid $green-lighter;
+      @include transition(opacity 0.3s);
+    }
+  }
+
+  input[type="checkbox"]:checked + label {
+    color: $green-light;
+  }
+}

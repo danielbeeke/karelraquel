@@ -1,0 +1,17 @@
+<div class="side-menu-inner">
+
+  <h3 class="block-title">{{ t('Menu') }}</h3>
+  <ul class="main-menu">
+    {% for page in pages %}
+      <li><a href="#page/{{ page.slug }}">{{ page.title }}</a></li>
+    {% endfor %}
+
+    <li><a href="#logout">{{ t('Logout') }}</a></li>
+  </ul>
+
+  <div class="language-switcher">
+      <a href="#set-language/nl" class="nl"><img src="images/nl.png"></a>
+      <a href="#set-language/en" class="en"><img src="images/en.png"></a>
+      <a href="#set-language/es" class="es"><img src="images/es.png"></a>
+  </div>
+</div>

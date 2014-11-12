@@ -1,0 +1,30 @@
+.main-menu {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: block;
+
+  li {
+    list-style: none;
+    margin: 0;
+
+    a {
+      float: left;
+      width: 100%;
+      padding: 8px 10px 10px;
+      @include transition(background .5s);
+      @include rgba-background(rgba($accent, 0.8));
+      color: white;
+      text-decoration: none;
+      font-size: 30px;
+      line-height: 30px;
+      margin-bottom: 10px;
+      font-family: $helium-l;
+      @include border-radius(3px);
+
+      &:hover, &.active {
+        @include rgba-background(rgba(darken($accent, 20%), 0.8));
+      }
+    }
+  }
+}

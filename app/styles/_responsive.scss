@@ -1,0 +1,86 @@
+@media all and (max-width: 720px) {
+  .page-outer-wrapper {
+    padding: 20px;
+  }
+
+  .page-wrapper {
+    margin: 0px;
+    margin-top: 70px;
+  }
+
+  .page-inner {
+    padding: 20px;
+  }
+
+  .show-only-image {
+      .page-wrapper {
+          @include opacity(1);
+      }
+  }
+
+  .date {
+    font-size: 40px;
+    margin: 0 20px;
+  }
+
+  .site-name {
+    font-size: 60px;
+  }
+
+  .site-name .ampersand {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .date {
+    font-size: 30px;
+  }
+
+  .site-name {
+    font-size: 50px;
+  }
+
+  .site-name .ampersand {
+    font-size: 20px;
+    line-height: 30px;
+    width: 30px;
+    top: 5px;
+    left: 3px;
+    height: 30px;
+  }
+}
+.date-option {
+  @include inline-block;
+}
+
+@media all and (max-width: 460px) {
+  form.save-the-date {
+    text-align: center;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .nice-radio {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    width: 100%;
+    text-align: center;
+
+    label {
+      width: 100%;
+    }
+  }
+
+  .date-option {
+    background: $green-lighter;
+    padding: 10px;
+    width: 100%;
+  }
+}
+

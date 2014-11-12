@@ -1,0 +1,22 @@
+<div class="main-inner fadeIn">
+  <div class="page-outer-wrapper" style="background-image: url({{ background }});">
+    <div class="page-wrapper">
+      <div class="bigtext">
+          <span>{{ title }}</span>
+      </div>
+
+      {% if image %}
+        <div class="image-wrapper">
+          {{ image }}
+        </div>
+      {% endif %}
+
+      <div class="page-inner">
+        <div class="body">
+          {{ body }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

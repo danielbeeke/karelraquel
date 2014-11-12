@@ -1,0 +1,45 @@
+<div class="main-inner fadeIn">
+  <div class="page-outer-wrapper" style="background-image: url({{ background }});">
+    <div class="page-wrapper">
+      <div class="bigtext">
+          <span>{{ title }}</span>
+      </div>
+
+      {% if image %}
+        <div class="image-wrapper">
+          {{ image }}
+        </div>
+      {% endif %}
+
+      <div class="page-inner">
+        <div class="body">
+          {{ body }}
+        </div>
+
+        <form class="my-account" role="form" novalidate>
+          <div class="form-group">
+            <label for="email">{{ t('Email address') }}</label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="{{ t('Email address') }}" value="{{ user.mail }}" novalidate>
+          </div>
+
+          <div class="form-group">
+            <label for="password-current">{{ t('Current password') }}</label>
+            <input type="password" class="form-control" id="password-current" placeholder="{{ t('Password') }}">
+          </div>
+
+          <div class="form-group">
+            <label for="password">{{ t('Password') }}</label>
+            <input type="password" class="form-control" id="password" placeholder="{{ t('Password') }}">
+          </div>
+
+          <div class="form-group">
+            <label for="password-confirm">{{ t('Repeat password') }}</label>
+            <input type="password" class="form-control" id="password-confirm" placeholder="{{ t('Password') }}">
+          </div>
+
+          <button type="submit" class="btn btn-default form-submit"><span>{{ t('Save') }}</span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
