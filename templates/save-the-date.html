@@ -1,0 +1,75 @@
+<div class="main-inner fadeIn">
+  <div class="page-outer-wrapper" style="background-image: url({{ background }});">
+    <div class="page-wrapper">
+      <div class="bigtext">
+          <span>{{ title }}</span>
+      </div>
+
+      {% if image %}
+        <div class="image-wrapper">
+          {{ image }}
+        </div>
+      {% endif %}
+      <div class="page-inner">
+        <div class="body">
+          {{ body }}
+        </div>
+
+        <form class="save-the-date ac-custom ac-list" autocomplete="off">
+
+              {% for account in accounts %}
+                  {% if account.properties.15 %}
+                    {% if account.properties.16 %}
+                      <span>{{ account.firstname }}</span>
+                    {% endif %}
+                  {% endif %}
+
+                  {% if account.properties.15 %}
+                <div class="date-option">
+                    <div class="nice-radio">
+
+                        <input value="true" id="{{account.uid}}-20-yes" type="radio" name="{{account.uid}}-20"  {% if account.properties.20 %}checked="checked"{% endif %}>
+                        <label for="{{account.uid}}-20-yes">{{ t('will be going') }}
+                      </label>
+                    </div>
+  <span class="separator">/</span>
+                    <div class="nice-radio">
+
+                        <input value="false" id="{{account.uid}}-20-no" type="radio" name="{{account.uid}}-20"  {% if account.properties.20 == undefined %}checked="checked"{% endif %}>
+                        <label for="{{account.uid}}-20-no">{{ t('will not be going') }}
+                      </label>
+                    </div>
+                    </div>
+                    <span>{{ t('to the wedding in Spain on the 6th september') }}</span>
+                  {% endif %}
+                  <hr>
+
+                  {% if account.properties.16 %}
+                    <span>{{ account.firstname }}</span>
+                <div class="date-option">
+
+                    <div class="nice-radio">
+
+                        <input value="true" id="{{account.uid}}-21-yes" type="radio" name="{{account.uid}}-21" {% if account.properties.21 %}checked="checked"{% endif %}>
+                        <label for="{{account.uid}}-21-yes">{{ t('will be going') }}
+                      </label>
+                    </div>
+  <span class="separator">/</span>
+                    <div class="nice-radio">
+
+                        <input value="false" id="{{account.uid}}-21-no" type="radio" name="{{account.uid}}-21" {% if account.properties.21 == undefined %}checked="checked"{% endif %}>
+                        <label for="{{account.uid}}-21-no">{{ t('will not be going') }}
+                      </label>
+                    </div>
+                    </div>
+                    <span>{{ t('to the wedding in the Netherlands on 4th october') }}</span>
+                  {% endif %}
+                  <hr>
+              {% endfor %}
+
+          <button type="submit" class="btn btn-default form-submit"><span>{{ t('Save') }}</span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
